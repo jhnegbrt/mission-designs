@@ -1,8 +1,15 @@
 <template>
-  <router-view/>
+  <transition
+    name="fade"
+    mode="out-in"
+  >
+    <router-view/>
+  </transition>
 </template>
-
 <style>
+
+
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -23,4 +30,18 @@
 #nav a.router-link-exact-active {
   color: #42b983;
 }
+
+.fade-enter-active,
+.fade-leave-active {
+  transition-duration: 1s;
+  transition-property: opacity;
+  transition-timing-function: ease;
+  overflow: hidden;
+}
+
+.fade-enter,
+.fade-leave-active {
+  opacity: 0
+}
+
 </style>
