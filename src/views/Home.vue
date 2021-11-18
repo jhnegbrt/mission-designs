@@ -1,8 +1,10 @@
 <template>
-  <Nav />
-  <div class="home">
-    <img alt="Mission Design" src="../assets/logo.png">
-    <Main />
+  <div>
+    <Nav />
+    <div class="home">
+      <img alt="Mission Design" src="../assets/logo.png">
+      <Main />
+    </div>
   </div>
 </template>
 

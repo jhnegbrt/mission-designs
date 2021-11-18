@@ -1,10 +1,19 @@
 <template>
-  <transition
-    name="fade"
-    mode="out-in"
+
+  <router-view v-slot="{ Component }">
+    <transition
+      name="fade"
+      mode="out-in"
+      appear
+    >
+      <component :is="Component" />
+    </transition>
+  </router-view>
+  <!-- <transition
+
   >
-    <router-view/>
-  </transition>
+    <router-view :key="$route.fullPath"/>
+  </transition> -->
 </template>
 <style>
 
@@ -31,17 +40,37 @@
   color: #42b983;
 }
 
+.fade-enter{
+  display: none;
+}
+
+.fade-enter,
+.fade-leave-active{
+  transition-timing-function: ease;
+  transition-duration: 1s;
+  opacity: 0
+}
+
+.fade-enter-active{
+  display: block
+}
+
 .fade-enter-active,
+.fade-leave{
+  transition-timing-function: ease;
+  transition-duration: 1s;
+  opacity: 1;
+}
+
+/* .fade-enter-active,
 .fade-leave-active {
   transition-duration: 1s;
   transition-property: opacity;
-  transition-timing-function: ease;
-  overflow: hidden;
 }
 
 .fade-enter,
 .fade-leave-active {
   opacity: 0
-}
+} */
 
 </style>
