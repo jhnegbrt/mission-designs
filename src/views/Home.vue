@@ -1,6 +1,7 @@
 <template>
+  <Nav />
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
+    <img alt="Mission Design" src="../assets/logo.png">
     <Main />
   </div>
 </template>
@@ -8,11 +9,13 @@
 <script>
 // @ is an alias to /src
 import Main from '@/components/Main.vue'
+import Nav from '@/components/Nav.vue'
 
 export default {
   name: 'Home',
   components: {
-    Main
+    Main,
+    Nav
   }
 }
 </script>
