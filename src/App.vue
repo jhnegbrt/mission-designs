@@ -1,20 +1,43 @@
 <template>
-
-  <router-view v-slot="{ Component }">
+  <router-view v-slot="{ Component, route }">
     <transition
-      name="fade"
+      :name="route.meta.transitionName"
       mode="out-in"
-      appear
     >
-      <component :is="Component" />
+      <div :key="route.path">
+        <div v-if="!splash" >
+          <Nav />
+        </div>
+        <component :is="Component" />
+      </div>
     </transition>
   </router-view>
-  <!-- <transition
-
-  >
-    <router-view :key="$route.fullPath"/>
-  </transition> -->
 </template>
+
+
+<script>
+
+  import Nav from './components/Nav.vue'
+
+  export default{
+    components: {
+      Nav
+    },
+    data: function() {
+      return {
+        splash: this.$route.path === "/"
+      }
+    },
+    watch: {
+      $route(to){
+        this.splash = to.fullPath === "/" ? true : false
+      }
+    }
+  }
+
+</script>
+
+
 <style>
 
 
@@ -27,9 +50,6 @@
   color: #2c3e50;
 }
 
-#nav {
-  padding: 30px;
-}
 
 #nav a {
   font-weight: bold;
@@ -61,16 +81,5 @@
   transition-duration: 1s;
   opacity: 1;
 }
-
-/* .fade-enter-active,
-.fade-leave-active {
-  transition-duration: 1s;
-  transition-property: opacity;
-}
-
-.fade-enter,
-.fade-leave-active {
-  opacity: 0
-} */
 
 </style>
