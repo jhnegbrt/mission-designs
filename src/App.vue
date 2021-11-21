@@ -4,9 +4,9 @@
       :name="route.meta.transitionName"
       mode="out-in"
     >
-      <div :key="route.path">
-        <div v-if="!splash" >
-          <Nav />
+      <div ref="main" :key="route.path">
+        <div id="nav" v-if="!splash" >
+          <Nav :navSize="navSize"/>
         </div>
         <component :is="Component" />
       </div>
@@ -25,13 +25,36 @@
     },
     data: function() {
       return {
-        splash: this.$route.path === "/"
+        splash: this.$route.path === "/",
+        navSize: "expanded",
+        fire: true
       }
     },
     watch: {
       $route(to){
         this.splash = to.fullPath === "/" ? true : false
       }
+    },
+    methods:{
+      handleScroll: function(){
+        if (this.fire){
+          if(window.scrollY > 0){
+            this.navSize = "collapsed"
+          } else {
+            this.navSize = "expanded"
+          }
+        }
+        this.fire = false
+        setTimeout(()=>{
+          this.fire = true
+        }, 20)
+      }
+    },
+    mounted() {
+      window.addEventListener("scroll", this.handleScroll)
+    },
+    unmounted(){
+      window.removeEventListener("scroll", this.handleScroll)
     }
   }
 
@@ -40,7 +63,12 @@
 
 <style>
 
-
+#nav {
+  position: sticky;
+  top: 0;
+  padding: 2vh;
+  background-color: white;
+}
 
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;

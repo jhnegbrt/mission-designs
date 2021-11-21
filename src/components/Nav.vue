@@ -1,5 +1,5 @@
 <template>
-  <div id="nav" :class="navSize">
+  <div id="inner-nav" :class="navSize">
     <img id="top-logo" alt="Mission Design" src="../assets/logo.png">
     <div id="nav-links">
       <router-link to="/home">Home</router-link> |
@@ -11,17 +11,7 @@
 <script>
 export default {
   name: 'Nav',
-  methods: {
-    checkScrollPosition: function(){
-
-    }
-  }
-  // created: function(){
-  //   window.addEventListener("scroll", this.checkScrollPosition)
-  // },
-  // destroyed: function(){
-  //   window.removeEventListener("scroll", this.checkScrollPosition)
-  // }
+  props: ["navSize"]
 }
 </script>
 
@@ -33,22 +23,20 @@ export default {
   }
 }
 
-.collapse{
+.collapsed{
   #top-logo {
     height: 5vh
   }
 }
 
-#nav {
-  position: sticky;
-  top: 0;
+#inner-nav{
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
   align-items: center;
-  padding: 2vh;
-  background-color: white;
+  justify-content:space-between;
 }
+
+
 #nav a {
   text-decoration: none;
   color: black;
