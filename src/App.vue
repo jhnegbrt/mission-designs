@@ -43,8 +43,8 @@
           } else {
             this.navSize = "expanded"
           }
+          this.fire = false
         }
-        this.fire = false
         setTimeout(()=>{
           this.fire = true
         }, 20)
