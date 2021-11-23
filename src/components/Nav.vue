@@ -36,11 +36,16 @@ export default {
 }
 
 #md-d{
-  margin-left: .2vw
+  margin-left: .2vw;
 }
 
 #md-m{
-  margin-left: .2vw
+  margin-left: .2vw;
+}
+
+#md-d,
+#md-text{
+  transition: transform 1s ease;
 }
 
 
@@ -65,6 +70,7 @@ export default {
   flex-direction: row;
   align-items: center;
   justify-content:space-between;
+  transition: transform 1s ease
 }
 
 
