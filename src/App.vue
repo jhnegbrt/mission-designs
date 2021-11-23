@@ -51,10 +51,10 @@
       }
     },
     mounted() {
-      window.addEventListener("scroll", this.handleScroll)
+      this.interval = window.setInterval(this.handleScroll, 100)
     },
     unmounted(){
-      window.removeEventListener("scroll", this.handleScroll)
+      clearInterval(this.interval)
     }
   }
 
