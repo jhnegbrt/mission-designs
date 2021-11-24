@@ -61,13 +61,13 @@
 </script>
 
 
-<style>
+<style lang="scss">
 
 #nav {
   position: sticky;
   top: 0;
   padding: 2vh;
-  background-color: white;
+  background-color: $backgroundColor
 }
 
 #app {
@@ -75,17 +75,14 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  color: $superDarkBlue;
+  background-color: $backgroundColor
 }
 
 
 #nav a {
   font-weight: bold;
   color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
 }
 
 .fade-enter{

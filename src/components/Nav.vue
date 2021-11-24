@@ -59,13 +59,9 @@ export default {
   }
 }
 
-.collapsed{
-  #top-logo {
-    height: 5vh
-  }
-}
 
 #inner-nav{
+  font-family: $mainFont;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -76,14 +72,13 @@ export default {
 
 #nav a {
   text-decoration: none;
-  color: black;
+  color: $superDarkBlue;
   &:hover{
     text-decoration: underline;
   }
 }
 
-#nav a.router-link-exact-active {
-  color: #008e97;
+#nav-links a.router-link-exact-active {
   text-decoration: underline;
 }
 </style>

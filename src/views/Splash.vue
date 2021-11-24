@@ -18,10 +18,11 @@ export default {
 
 </script>
 
-<style>
+<style lang="scss" scoped>
 
 #splash{
   height: 100vh;
+  font-family: $mainFont;
 }
 
 </style>
