@@ -15,10 +15,10 @@ const routes = [
     component: () => import(/* webpackChunkName: "home" */ '../views/Home.vue')
   },
   {
-    path: '/about',
-    name: 'About',
+    path: '/philosophy',
+    name: 'Philosophy',
     meta: { transition: "none" },
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
+    component: () => import(/* webpackChunkName: "about" */ '../views/Philosophy.vue')
   }
 ]
 

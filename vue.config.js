@@ -1,5 +1,3 @@
-const GoogleFontsPlugin = require("google-fonts-webpack-plugin")
-
 module.exports = {
   css: {
     loaderOptions: {
@@ -10,5 +8,17 @@ module.exports = {
         `
       }
     }
-  }
+  },
+  chainWebpack: (config) => {
+    const svgRule = config.module.rule('svg');
+
+    svgRule.uses.clear();
+
+    svgRule
+      .use('babel-loader')
+      .loader('babel-loader')
+      .end()
+      .use('vue-svg-loader')
+      .loader('vue-svg-loader');
+  },
 }
