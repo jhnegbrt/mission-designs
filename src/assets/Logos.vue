@@ -6,6 +6,7 @@
     xmlns:svg="http://www.w3.org/2000/svg"
     xmlns="http://www.w3.org/2000/svg"
     version="1.1"
+    viewBox="0 0 577.85156 257.38281"
     width="577.85156"
     height="257.38281"
     id="svg2">
